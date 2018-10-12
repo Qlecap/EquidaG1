@@ -11,6 +11,7 @@ import database.AcheteurDAO;
 import database.VenteDAO;
 import database.CategVenteDAO;
 import database.CourrielDAO;
+import database.PieceJointeDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -26,6 +27,7 @@ import modele.Acheteur;
 import modele.Vente;
 import modele.Courriel;
 import modele.CategVente;
+import modele.PieceJointe;
 /**
  *
  * @author Zakina
@@ -153,7 +155,16 @@ public class ServletVentes extends HttpServlet {
             getServletContext().getRequestDispatcher("/vues/ventes/listerLesCourriels.jsp").forward(request, response);
         }
         
-        
+        if(url.equals("/EquidaWeb18/ServletVentes/envoyerMail"))
+        {  
+           ArrayList<Vente> lesVentes = VenteDAO.getLesVentes(connection);
+           request.setAttribute("pLesVentes", lesVentes);
+           
+           ArrayList<PieceJointe> lesPiecesJointes = PieceJointeDAO.getLesPiecesJointes(connection);
+           request.setAttribute("pLesPiecesJointes", lesPiecesJointes);
+            
+           getServletContext().getRequestDispatcher("/vues/ventes/envoyerMail.jsp").forward(request, response);
+        }
     }
 
     /**
