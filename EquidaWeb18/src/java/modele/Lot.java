@@ -16,15 +16,17 @@ public class Lot {
     private float prixDepart ;
     private Cheval cheval;
     private Vendeur unVendeur ;
+    private boolean selectionner;
 
 
     public Lot() {
     }
 
-    public Lot(int id, float prixDepart, Cheval cheval) {
+    public Lot(int id, float prixDepart, Cheval cheval, boolean selectionner) {
         this.id = id;
         this.prixDepart = prixDepart;
         this.cheval = cheval;
+        this.selectionner = selectionner;
     }
 
     public int getId() {
@@ -57,6 +59,14 @@ public class Lot {
 
     public void setUnVendeur(Vendeur unVendeur) {
         this.unVendeur = unVendeur;
+    }
+
+    public boolean isSelectionner() {
+        return selectionner;
+    }
+
+    public void setSelectionner(boolean selectionner) {
+        this.selectionner = selectionner;
     }
 
     

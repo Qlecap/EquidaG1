@@ -196,6 +196,16 @@ public class ServletVentes extends HttpServlet {
             request.setAttribute("pLesTypeCheval", lesTypeCheval);
             this.getServletContext().getRequestDispatcher("/vues/ventes/chevalAjouter.jsp" ).forward( request, response );
         }
+          
+          if(url.equals("/EquidaWeb18/ServletVentes/chevalSelectionner"))
+        {  
+            String codeVente = (String)request.getParameter("codeVente");
+           
+            
+            ArrayList<Lot> lesLots = LotDAO.getLesLots(connection, codeVente);
+            request.setAttribute("pLesLots", lesLots);
+            getServletContext().getRequestDispatcher("/vues/ventes/chevalSelectionner.jsp").forward(request, response);
+        }
         
          if(url.equals("/EquidaWeb18/ServletVentes/listerLesEncheres"))
          {

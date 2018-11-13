@@ -33,6 +33,7 @@ public class Cheval {
         this.pere = pere;
         this.mere = mere;
         this.typeCheval = typeCheval;
+        
     }
 
     
@@ -92,6 +93,7 @@ public class Cheval {
     public void setTypeCheval(TypeCheval typeCheval) {
         this.typeCheval = typeCheval;
     }
+
 
     public ArrayList<Participer> getLesParticipation() {
         return lesParticipation;

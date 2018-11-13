@@ -69,7 +69,7 @@ public class ChevauxDAO {
         }
         return unCheval ;    
     }
-    
+
     public static ArrayList<Cheval>  getLesChevaux(Connection connection,String codeAcheteur){      
         ArrayList<Cheval> lesChevaux = new  ArrayList<Cheval>();
         try
@@ -82,13 +82,13 @@ public class ChevauxDAO {
             
             while ( rs.next() ) {  
                 
-                
+               
                 Cheval unCheval = new Cheval();
                 unCheval.setId(rs.getInt("id"));
                 unCheval.setNom(rs.getString("nom"));
                 unCheval.setSexe(rs.getString("sexe"));
                 unCheval.setSire(rs.getString("sire"));
-                
+
                 if(rs.getString("typ_id") != ""){
                     requete=connection.prepareStatement("select * from typecheval where id = ?");  
                     requete.setString(1, rs.getString("typ_id"));
@@ -155,8 +155,8 @@ public class ChevauxDAO {
                     unCheval.addUneParticipation(uneParticipation);
                 }
                 
-              
-                        
+
+                              
                 lesChevaux.add(unCheval);
             }
         }    

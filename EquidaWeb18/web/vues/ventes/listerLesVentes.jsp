@@ -114,6 +114,10 @@
                            out.println("Lister les Chevaux");
                            out.println("</td>");
                            
+                           out.println("<td><a href ='../ServletVentes/chevalSelectionner?codeVente="+ uneVente.getId()+ "'>");
+                           out.println("Selectionner les Chevaux");
+                           out.println("</td>");
+                           
                             out.println("<td>");
                             out.println("<a class=\"waves-effect waves-light btn-small\" href ='../ServletVentes/SupprimerUneVente?codeVente="+ uneVente.getId()+ "'><i class=\"material-icons\">delete</i></a>");
                             out.println("</td>");

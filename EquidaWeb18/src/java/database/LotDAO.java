@@ -127,6 +127,16 @@ public class LotDAO {
                         
                 lesLots.add(unLot);
             }
+            
+                requete=connection.prepareStatement("select cheval.id, selectionner from cheval,lot where cheval.id = lot.che_id AND vent_id = ?");
+                requete.setBoolean(1, rs.getBoolean("selectionner"));
+                
+                ResultSet rsel=requete.executeQuery();
+                while (rsel.next()) {
+                    Lot unLot = new Lot();
+                    unLot.setSelectionner(rsel.getBoolean("selectionner"));
+                    
+                }
         }   
         catch (SQLException e) 
         {
